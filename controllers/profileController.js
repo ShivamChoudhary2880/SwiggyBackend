@@ -4,8 +4,8 @@ const { parse } = require('path');
 
 exports.createProfile = async (req, res) => {
     try {
-        const { userId, bio, skills, experience } = req.body;
-        const profilePhoto = req.file ? req.file.filename : null;
+        const { userId, bio, skills, experience, profilePhoto } = req.body;
+        ////const profilePhoto = req.file ? req.file.filename : null;
 
         if (!userId) {
             return res.status(400).json({ message: "User ID is required" });

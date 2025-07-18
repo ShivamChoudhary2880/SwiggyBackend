@@ -8,8 +8,8 @@ exports.createUser = async (req, res) => {
             username,
             email,
             mobile,
-            password,
-            isVerified,
+            // password,
+            // isVerified,
             // role,
             // gender,
             // age
@@ -19,8 +19,8 @@ exports.createUser = async (req, res) => {
             username,
             email,
             mobile,
-            password,
-            isVerified,
+            // password,
+            // isVerified,
             // role,
             // gender,
             // age,
@@ -29,10 +29,15 @@ exports.createUser = async (req, res) => {
         const savedUser = await newUser.save();
         res.status(201).json({
             message: "User created successfully",
+            success: 'true',
             data: savedUser,
         })
     } catch (error) {
-        res.status(400).json({ message: "Failed to create user", error: err.message });
+        res.status(400).json({
+            success: false,
+            message: "Failed to create user",
+            error: err.message
+        });
     }
 };
 

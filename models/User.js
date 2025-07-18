@@ -19,15 +19,15 @@ const userSchema = new mongoose.Schema(
             required: true,
             trim: true
         },
-        password: {
-            type: String,
-            required: true,
-            minlength: 6,
-        },
-        isVerified: {
-            type: Boolean,
-            default: false,
-        },
+        // password: {
+        //     type: String,
+        //     required: true,
+        //     minlength: 6,
+        // },
+        // isVerified: {
+        //     type: Boolean,
+        //     default: false,
+        // },
     //     role: {
     //         type: String,
     //         enum: ["user", "Admin"],
