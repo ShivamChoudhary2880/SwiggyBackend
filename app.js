@@ -7,7 +7,10 @@ const profileRoutes = require("./routes/profileRoutes");
 const cookieParser = require("cookie-parser");
 const uploadRoutes = require('./routes/uploadRouter');
 const restaurantRoutes = require('./routes/restaurantRoutesr')
+const dishRouter = require('./routes/dishRouter');
+const groceryRouter = require('./routes/groceryRouter');
 const cors = require('cors');
+
 
 app.use(express.json());
 app.use(cookieParser());
@@ -24,7 +27,9 @@ app.use(
 app.use("/v1/api/upload", uploadRoutes);
 app.use("/v1/api", userRouter)
 app.use("/v1/api/profile", profileRoutes); 
-app.use('/v1/api/restaurant', restaurantRoutes);
+app.use('/v1/api/resto', restaurantRoutes);
+app.use('/v1/api/dish', dishRouter);
+app.use('/v1/api/grocery', groceryRouter);
 
 app.use("/", (req, res) => {
     res.send("Backend is live now");
