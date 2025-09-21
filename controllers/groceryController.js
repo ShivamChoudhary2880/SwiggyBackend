@@ -96,3 +96,26 @@ exports.updateGrocery = async (req, res) => {
         })
     };
 };
+
+exports.deleteGrocery = async (req, res) => {
+    try {
+        const deleteGrocery = await Grocery.findByIdAndDelete(req.body.id);
+        if (!deleteGrocery) {
+            return res.status(400).json({
+                message: "Grocery not found",
+                success: "false"
+            })
+        }
+        return res.status(200).json({
+            message: "Grocery deleted successfully",
+            success: true,
+        })
+    } catch (error) {
+        console.error("Server error", error);
+        return res.status(500).json({
+            message: "Server error",
+            success: false,
+            error: error.message
+        })
+    }
+}
